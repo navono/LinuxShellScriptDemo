@@ -1,7 +1,6 @@
 #!/bin/bash
 # using zenity to create a menu
 
-
 temp=$(mktemp -t temp.XXXXX)
 temp2=$(mktemp -t temp.XXXXX)
 
