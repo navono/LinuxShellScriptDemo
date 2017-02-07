@@ -1,0 +1,151 @@
+# substitution
+s/pattern/replacement/flags
+
+flags:
+1. number
+2. g
+3. p
+4. w file
+
+e.g.
+sed 's/test/trial/2' data3.txt
+# just replace second [test] in every line
+
+sed 's/test/trial/g' data3.txt
+# replace every [test] in every line
+
+sed -n 's/test/trial/p' data4.txt
+# just print the modified line
+
+sed 's/test/trial/w test.txt' data4.txt
+# output the modified result to test.text file
+
+# string delimiter
+sed 's/\/bin\/bash/\/bin\/csh/' /etc/passwd
+equals
+sed 's!/bin/bash!/bin/csh!' /etc/passwd
+
+
+# addresses
+[address] command
+or
+address {
+    command1
+    command2
+    command3
+}
+
+1. a numeric range
+2. a text pattern
+
+e.g.
+sed '2s/dog/cat/' data1.txt
+# just replace the second line
+
+sed '2,3s/dog/cat/' data1.txt
+# replace the second and third line
+
+sed '2,$s/dog/cat' data1.txt
+# replace the line from second to last
+
+
+# grouping commands
+
+sed '2{
+> s/fox/elephant/
+> s/dog/cat/
+> }' data1.txt
+
+
+
+# deleting
+
+e.g.
+sed 'd' data5.txt
+# delete all lines
+
+sed '3d' data5.txt
+# delete third line
+
+sed '2,3d' data5.txt
+
+sed '2,$d' data5.txt
+
+
+# inserting and appending
+
+1. insert command (i) adds a new line before the specified line
+2. append command (a) adds a new line after the specified line
+
+e.g.
+echo "Test line 2" | sed 'i\Test line 1'
+
+sed '3i\This is an inserted line.' data5.txt
+
+sed '$a\This is a new line' data5.txt
+
+
+# changing
+
+change command (c)
+
+
+# transforming characters
+[address]y/inchars/outchars/
+
+sed 'y/123/789/' data5.txt
+
+
+# printing revisited
+
+1. The p command to print a text line
+2. The equal sign (=) command to print line numbers
+3. The l (lowercase L) command to list a line
+
+
+e.g.
+echo "This is a test" | sed 'p'
+
+sed -n '/line 3/p' data5.txt
+sed -n '2,3p' data5.txt
+
+sed '=' data5.txt
+
+
+# reading data from a flie
+
+[address]r filename
+insert data contained in a separate file
+
+sed '3r data6.txt' data5.txt
+
+
+e.g.
+sed '/LIST/{r data5.txt d}' notice.std
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

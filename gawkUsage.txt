@@ -1,0 +1,17 @@
+
+# just print the first field
+gawk '{print $1}' data2.txt
+
+# print the first field with specified separator
+gawk -F: '{print $1}' /etc/passwd
+
+# multiple commands
+echo "My name is Rich" | gawk '{$4="Ping"; print $0}'
+
+# running scripts before processing data
+gawk 'BEGIN {print "Hello World!"}'
+
+gawk 'BEGIN {print "Hello"} {print $0}' data1.txt
+
+# running scripts after processing data
+gawk '{print $0} END {print "End of file"}' data1.txt
