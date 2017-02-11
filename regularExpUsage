@@ -1,0 +1,109 @@
+special characters: .*[]^${}\+?|()
+
+
+^
+starting at the beginning
+
+$
+looking for the ending
+
+.
+match any single character except a newline character
+
+[]
+character class
+e.g.
+$ sed -n '/[ch]at/p' data
+
+Negating charater classes.Look for any character that's not int the class
+$ sed -n '/[^ch]at/p' data
+
+ranges
+[0-9]
+[a-z]
+
+BRE special character classes
+[[:alpha:]]
+[[:alnum:]]
+[[:blank:]]
+[[:digit:]]
+[[:lower:]]
+[[:print:]]
+[[:punct:]]
+[[:space:]]
+[[:upper:]]
+
+
+asterisk
+placing a asterisk after a character signifies that the character must appear 
+zero or more times in the text
+
+
+combin usage
+/test.*file/
+
+match any number of any characters between 'test' and 'file'
+
+
+question mark(?)
+the preceding character can appear zero or one time
+
+
+plus sign(+)
+indicates that the preceding character can appear one or more times, but must 
+be present at least once.
+
+
+braces({})
+1. m: The regular expression appears exactly m times
+2. m,n: The regular expression appears at least m times,but no more than n times
+
+
+pipe symbol(|)
+specify two or more patterns
+e.g.
+echo "The cat is asleep" | gawk '/cat|dog/{print $0}'
+
+
+grouping expressions(())
+e.g.
+echo "Saturday" | gawk '/Sat(urday)?/{print $0}'
+echo "Sat" | gawk '/Sat(urday)?/{print $0}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
