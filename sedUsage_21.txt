@@ -1,0 +1,13 @@
+three special commands
+1. N(Navigating) adds the next line in the data stream to create a multiline group for processing
+2. D (Delete) deletes a single line in a multiline group
+3. P (Print) prints a single line in a multiline group 
+
+
+
+# remove all the blank
+sed '/^$/d' data21_0.txt
+
+# just remove the first blank
+sed '/header/{n; d}' data21_0.txt
+
