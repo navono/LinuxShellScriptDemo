@@ -1,0 +1,16 @@
+sudo mkdir /archive
+ls -ld /archive
+
+# then add custom group
+sudo groupadd Archivers
+sudo chgrp Archivers /archive
+ls -ld /archive
+
+# add current user to Archivers group
+sudo usermod -aG Archivers navono
+
+sudo chmod 775 /archive
+
+
+
+
