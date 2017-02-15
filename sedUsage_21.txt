@@ -11,3 +11,15 @@ sed '/^$/d' data21_0.txt
 # just remove the first blank
 sed '/header/{n; d}' data21_0.txt
 
+# comibing lines of text
+sed '/first/{N ; s/\n/ / }' data21_1.txt
+
+# bad sample
+sed 'N ; s/System Administrator/Desktop User/' data21_2.txt
+
+# good sample
+sed 'N ; s/System.Administrator/Desktop User/' data21_2.txt
+
+
+sed 'N; /System\nAdministrator/d' data21_3.txt
+
